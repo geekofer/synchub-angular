@@ -1,0 +1,35 @@
+<div class="User-card card">
+  <img
+    style="height: auto; width: 100%; display: block; cursor: pointer;"
+    [src]="user.avatar_url"
+    [alt]="user.login"
+    (click)="onShowDetails(user)"
+    title="show details"
+  />
+  <div class="card-body">
+    <h4 class="card-title" (click)="onShowDetails(user)">{{ user.login }}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">
+      <span class="badge-nickname" (click)="onShowDetails(user)"
+        ><i class="fa fa-github-square" aria-hidden="true"></i> @{{ user.login }}</span
+      >
+
+      <span
+        *ngIf="user.status !== syncStatus.syncronized"
+        class="badge badge-success badge-sync"
+        title="Click to sync user"
+        (click)="onSync(user)"
+        ><i class="fa fa-exchange" aria-hidden="true"></i>
+        {{ user.status === syncStatus.notSynchronized ? 'Sync' : 'please wait ...' }}</span
+      >
+
+      <div *ngIf="user.status === syncStatus.syncronized" class="badge-actions">
+        <span class="badge badge-info badge-sync" title="Click to sync user">
+          Syncronized
+        </span>
+        <span class="badge badge-danger badge-sync" (click)="onUnSync(user)">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </span>
+      </div>
+    </h6>
+  </div>
+</div>

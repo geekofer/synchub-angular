@@ -1,0 +1,13 @@
+.user-information {
+  span {
+    margin-right: 5px;
+    padding: 0 5px;
+    border-right: 1px solid gray;
+    &:last-child {
+      border: 0;
+    }
+    i {
+      width: 20px;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import 'variables';
+
+// Navigation
+.navbar-brand {
+  .brand-logo {
+    .octicon {
+      fill: #ffffff;
+    }
+  }
+  .brand-text {
+    margin-left: 15px;
+    .sync__title {
+      font-family: $font-family-cursive;
+    }
+  }
+}
+
+// Containers
+.main-container {
+  margin: 30px auto;
+}
+
+// Page headers
+
+.Header-page {
+  padding: 15px 0;
+  border-bottom: 1px solid $gray-700;
+  .Header-icon {
+    color: $white;
+    font-size: 14px;
+  }
+  .Header-title {
+    font-family: $font-family-cursive;
+    font-size: 17px;
+    small {
+      font-size: 12px;
+      color: $gray-400;
+      border-left: 1px solid $gray-700;
+      margin-left: 15px;
+      padding-left: 15px;
+    }
+  }
+}

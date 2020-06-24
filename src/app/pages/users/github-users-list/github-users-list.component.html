@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="Header-page">
+        <span class="Header-icon">
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </span>
+        <span class="Header-title">
+          Explore
+          <small>Find an user into github</small>
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <spiner *ngIf="!githubUsers && isLoadingGithubUsers"></spiner>
+      <div class="Github-users__container" *ngIf="githubUsers">
+        <user-card
+          *ngFor="let user of githubUsers | userVerification"
+          [user]="user"
+          (sync)="syncUser($event)"
+          (unSync)="unSyncUser($event)"
+          (showProfile)="showProfile($event)"
+        ></user-card>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <button
+        type="button"
+        class="btn btn-success m-auto d-block"
+        (click)="loadMoreUsers()"
+        *ngIf="githubUsers && githubUsers.length > 0"
+      >
+        <i class="fa fa-plus-square-o" aria-hidden="true"></i> Load More
+      </button>
+    </div>
+  </div>
+</div>

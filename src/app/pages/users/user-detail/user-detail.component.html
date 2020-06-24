@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row" *ngIf="user">
+    <div class="col-sm-4">
+      <div class="User-card card">
+        <img
+          style="height: auto; width: 100%; display: block; cursor: pointer;"
+          [src]="user.avatar_url"
+          [alt]="user.login"
+          title="show details"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ user.login }}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <span class="badge-nickname"
+              ><i class="fa fa-github-square" aria-hidden="true"></i> @{{ user.login }}</span
+            >
+          </h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <h4>Information</h4>
+      <p class="text-muted user-information">
+        <span class="name" *ngIf="user.name"
+          ><i class="fa fa-user-circle" aria-hidden="true"></i>
+          {{ user.name }}
+        </span>
+        <span class="location" *ngIf="user.location"
+          ><i class="fa fa-map-marker"></i>{{ user.location }}</span
+        >
+        <span class="blog" *ngIf="user.blog"
+          ><a [href]="user.blog" target="_blank"
+            ><i class="fa fa-globe"></i> {{ user.blog }}</a
+          ></span
+        >
+      </p>
+      <div class="alert alert-dismissible alert-primary" *ngIf="user.bio">
+        {{ user.bio }}
+      </div>
+      <div>
+        <ngx-charts-pie [series]="chartData" [options]="options"></ngx-charts-pie>
+      </div>
+    </div>
+  </div>
+</div>

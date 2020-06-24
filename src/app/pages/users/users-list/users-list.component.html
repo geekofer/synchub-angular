@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="Header-page">
+        <span class="Header-icon">
+          <i class="fa fa-users" aria-hidden="true"></i>
+        </span>
+        <span class="Header-title">
+          Search
+          <small>Find an user into database</small>
+        </span>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <search (searchTerm)="onSearch($event)"></search>
+    </div>
+    <div class="col-sm-12">
+      <spiner *ngIf="!users && isLoadingUsers"></spiner>
+      <message
+        *ngIf="users?.length === 0 && !isLoadingUsers"
+        messageText="No hay usuarios sincronizados."
+      ></message>
+      <div class="Synchub-users__container" *ngIf="users">
+        <user-card
+          *ngFor="let user of users | userVerification | search: searchText"
+          [user]="user"
+          (unSync)="unSyncUser($event)"
+          (showProfile)="showProfile($event)"
+        ></user-card>
+      </div>
+    </div>
+  </div>
+</div>

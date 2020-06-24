@@ -1,0 +1,33 @@
+@import '../../../../theme/variables';
+
+.User-card {
+  .card-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .card-title {
+    cursor: pointer;
+    &:hover {
+      color: $success;
+    }
+  }
+  .badge-nickname {
+    color: $gray-600;
+    cursor: pointer;
+    &:hover {
+      color: $success;
+    }
+  }
+  .badge-sync {
+    font-family: $font-family-cursive;
+    cursor: pointer;
+  }
+  .badge-actions {
+    span {
+      &:first-child {
+        margin-right: 5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<div class="container main-container">
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action"
+          routerLinkActive="active"
+          routerLink="github-users"
+          >Github Users</a
+        >
+        <a
+          class="list-group-item list-group-item-action"
+          routerLinkActive="active"
+          routerLink="users-list"
+          >All users</a
+        >
+      </div>
+    </div>
+    <div class="col-sm-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div></div>
+</div>
